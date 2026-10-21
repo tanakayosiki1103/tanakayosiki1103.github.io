@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RESOANA</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Helvetica Neue", "Hiragino Kaku Gothic ProN",
+        "Yu Gothic", sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 70px 20px 45px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+
+    .blue-line {
+      width: 190px;
+      height: 3px;
+      background: #27bfd1;
+      margin: 45px auto 12px;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 20px auto 0;
+      font-size: 17px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    section {
+      padding: 45px 0 75px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin: 0 0 40px;
+      font-weight: 500;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .card {
+      text-align: left;
+    }
+
+    /* App */
+
+    .app-card {
+      text-align: center;
+    }
+
+    .app-card img {
+      width: 180px;
+      height: 180px;
+      max-width: 75%;
+      object-fit: cover;
+      border-radius: 38px;
+      display: block;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    }
+
+    .app-card h3 {
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.45;
+      margin: 10px 0;
+    }
+
+    .app-card p {
+      font-size: 15px;
+      text-align: left;
+      margin: 0;
+    }
+
+    .app-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 28px;
+      border: 1px solid #27bfd1;
+      border-radius: 4px;
+      color: #149bad;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .app-button:hover {
+      background: #27bfd1;
+      color: white;
+    }
+
+    /* Logo Design */
+
+    .logo-section {
+      background: #fafafa;
+    }
+
+    .logo-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
+      background: white;
+    }
+
+    .logo-card h3 {
+      font-size: 22px;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.5;
+      margin: 16px 0 12px;
+    }
+
+    .logo-card p {
+      font-size: 15px;
+      margin-top: 0;
+    }
+
+    /* Profile */
+
+    .profile-title,
+    .contact-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .small-line {
+      width: 130px;
+      height: 3px;
+      background: #27bfd1;
+      margin: 0 auto 25px;
+    }
+
+    .profile-intro {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .profile-box {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-box img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-box h3 {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    /* Contact */
+
+    .contact {
+      text-align: center;
+      padding: 80px 20px 100px;
+    }
+
+    .contact-message {
+      font-size: 16px;
+      line-height: 2;
+      margin: 25px 0 10px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background: #27bfd1;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 55px;
+      margin-top: 20px;
+      border-radius: 4px;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-button:hover {
+      opacity: 0.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-box {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 27px;
+      }
+
+      .app-card {
+        margin-bottom: 25px;
+      }
+
+      .app-card img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .contact-button {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>RESOANA</h1>
+
+  <div class="blue-line"></div>
+
+  <p>App Developer / Designer</p>
+
+  <p class="intro">
+    日常を少し楽しく、少し便利にするアプリを中心に、
+    iPhone向けアプリの企画・開発・デザインを行っています。
+  </p>
+
+</header>
+
+
+<!-- App Development -->
+
+<section>
+
+  <div class="container">
+
+    <h2>App Development</h2>
+
+    <div class="cards">
+
+      <div class="card app-card">
+
+        <img src="app1.png" alt="Humorix">
+
+        <h3>Humorix</h3>
+
+        <p>
+          日常の出来事を、少し違った視点から
+          ユーモアのあるエピソードへ変換するアプリです。
+          何気ない失敗や出来事を、会話のネタに変えて楽しめます。
+        </p>
+
+        <a class="app-button"
+           href="https://apps.apple.com/jp/app/humorix/id6798891282"
+           target="_blank"
+           rel="noopener noreferrer">
+          App Store
+        </a>
+
+      </div>
+
+
+      <div class="card app-card">
+
+        <img src="app2.jpg" alt="AI人生ゲーム">
+
+        <h3>AI人生ゲーム</h3>
+
+        <p>
+          AIとのやり取りを楽しみながら、
+          人生をテーマにした体験ができるアプリです。
+          音声機能なども取り入れています。
+        </p>
+
+        <a class="app-button"
+           href="https://apps.apple.com/jp/app/ai%E4%BA%BA%E7%94%9F%E3%82%B2%E3%83%BC%E3%83%A0/id6741511383"
+           target="_blank"
+           rel="noopener noreferrer">
+          App Store
+        </a>
+
+      </div>
+
+
+      <div class="card app-card">
+
+        <img src="app3.png" alt="マッチング・フィーリング">
+
+        <h3>マッチング・フィーリング</h3>
+
+        <p>
+          6つの感情をもとに、
+          相手とのフィーリングを楽しむ
+          シンプルなコミュニケーションアプリです。
+        </p>
+
+        <a class="app-button"
+           href="https://apps.apple.com/jp/app/%E3%83%9E%E3%83%83%E3%83%81%E3%83%B3%E3%82%B0-%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0/id6748877770"
+           target="_blank"
+           rel="noopener noreferrer">
+          App Store
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Logo Design -->
+
+<section class="logo-section">
+
+  <div class="container">
+
+    <h2>Logo Design</h2>
+
+    <div class="cards">
+
+      <div class="card logo-card">
+
+        <img src="angou@2x.jpg" alt="Logo Design 1">
+
+        <h3>色や質感が統一されている</h3>
+
+        <p>
+          ロゴは、その会社やブランドの「顔」となる大切な要素です。
+          理念や雰囲気、提供する価値を、
+          視覚的に伝えるデザインを目指しています。
+        </p>
+
+      </div>
+
+
+      <div class="card logo-card">
+
+        <img src="logo2.png" alt="Logo Design 2">
+
+        <h3>高い技術力</h3>
+
+        <p>
+          業種やターゲットに合わせて、
+          印象や世界観が自然に伝わる
+          デザインを意識しています。
+        </p>
+
+      </div>
+
+
+      <div class="card logo-card">
+
+        <img src="logo3.png" alt="Logo Design 3">
+
+        <h3>シンプルで覚えやすい</h3>
+
+        <p>
+          見た瞬間に印象が残り、
+          幅広い用途で使いやすい
+          シンプルなデザインを大切にしています。
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Profile -->
+
+<section>
+
+  <div class="container">
+
+    <h2 class="profile-title">Profile</h2>
+
+    <div class="small-line"></div>
+
+    <p class="profile-intro">
+      アプリの企画から開発、デザインまで、
+      アイデアを実際に使える形にすることを楽しみながら制作しています。
+      小さなアイデアでも、誰かの日常を少し楽しくできるものを目指しています。
+    </p>
+
+
+    <div class="profile-box">
+
+      <img src="logo7.jpg" alt="RESOANA Profile">
+
+      <div>
+
+        <h3>RESOANA</h3>
+
+        <p>App Developer / Designer</p>
+
+        <p>
+          iPhoneアプリを中心に、
+          アイデアの企画、UIデザイン、開発、
+          App Storeでの公開まで個人で行っています。
+        </p>
+
+        <a class="contact-button" href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <h2 class="contact-title">Contact</h2>
+
+    <div class="small-line"></div>
+
+    <p class="contact-message">
+      アプリ・デザイン・その他のお問い合わせは、<br>
+      下のボタンからお気軽にご連絡ください。
+    </p>
+
+    <a
+      class="contact-button"
+      href="mailto:resoana.contact@gmail.com?subject=RESOANA%20お問い合わせ">
+      メールで問い合わせ
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+  Copyright 2026 RESOANA
+</footer>
+
+</body>
+</html>
